@@ -5,6 +5,6 @@ using namespace std;
 
 class InvestmentFund : public Assets {
 
-
-
+public:
+	InvestmentFund();
 };

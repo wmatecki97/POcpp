@@ -3,7 +3,13 @@
 class Assets {
 
 public:
+	Assets();
+	double getValue();
+	void setValue(double value);
+	char getInfo();
 
-	void getValue();
-
+protected:
+	int id;
+	string name;
+	double value;
 };

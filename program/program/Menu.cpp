@@ -1,7 +1,14 @@
 ﻿#include<iostream>
 #include "Menu.h"
+#include "InvestmentFund.h"
 
 using namespace std;
+
+static Wallet wallet;
+
+void Menu::init() {
+
+}
 
 void Menu::start()
 {
@@ -19,7 +26,14 @@ void Menu::start()
 
 void Menu::addItem()
 {
-	cout<<"Co chcesz dodać?"<<endl<<"Aby dodać"
+	cout << "Co chcesz dodac?" << endl << "Aby dodac fundusz inwestycyjny wpisz 1"<<endl;
+	int input;
+	cin >> input;
+	switch (input) {
+	case 1: wallet.addAsset(InvestmentFund());break;
+	}
+	start();
+
 }
 
 void Menu::display() {
@@ -28,14 +42,17 @@ void Menu::display() {
 
 void Menu::deleteItem()
 {
+
 }
 
 void Menu::editItem()
 {
+
 }
 
 void Menu::getValue()
 {
+
 }
 
 
