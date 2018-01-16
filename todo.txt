@@ -1,0 +1,1 @@
+ogarniecie wartosci czasu przy wczytywaniu i wallet

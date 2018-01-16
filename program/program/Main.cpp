@@ -6,7 +6,7 @@ using namespace std;
 
 
 int main() {
-    AdditionalFunctions::id = 0;
+
 	Menu::start();
 	return 0;
 }

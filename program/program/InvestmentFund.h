@@ -7,4 +7,5 @@ class InvestmentFund : public Assets {
 
 public:
 	InvestmentFund();
+	//InvestmentFund(int a);
 };

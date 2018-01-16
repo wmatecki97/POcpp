@@ -1,7 +1,11 @@
+#include<ctime>
+
 class AdditionalFunctions {
 
 public:
-	static int id;
+	static void initialize();
 	static int getID();
 	static int getRandom(int min, int max);
+	static int getTimePeriods();
+
 };

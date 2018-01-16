@@ -19,3 +19,10 @@ void Wallet::addAsset(Assets asset) {
 
 }
 
+void Wallet::erase(int id) {
+	
+	for (int i = 0; i < list.size; i++) {
+		if (list[i].getId() == id)
+			list.erase(list.begin + i);
+	}
+}

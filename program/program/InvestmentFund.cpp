@@ -6,10 +6,6 @@
 
 using namespace std;
 
-InvestmentFund::InvestmentFund(int a) {
-	if (a > 0)
-		value = AdditionalFunctions::getRandom();
-	else
-		cout << endl << "BLEDNA WARTOSC" << endl;
-
+InvestmentFund::InvestmentFund():Assets("FunduszInwestycyjny"){
+	value = AdditionalFunctions::getRandom(1000, 10000);	
 }

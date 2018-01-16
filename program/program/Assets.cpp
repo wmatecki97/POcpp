@@ -1,6 +1,7 @@
 #include "Assets.h"
 #include <iostream>
 #include "AdditionalFunctions.h"
+#include <string>
 
 using namespace std;
 
@@ -13,7 +14,13 @@ void Assets::setValue(double val)
 	this->value = val;
 }
 
-Assets::Assets() {
+Assets::Assets(char type[]) {
 	id = AdditionalFunctions::getID();
-	name = 
+	string temp(type);
+	temp += to_string(id);
+	name = temp;
+}
+
+int Assets::getId(){
+	return id;
 }

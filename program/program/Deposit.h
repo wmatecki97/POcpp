@@ -10,6 +10,6 @@ public:
 
 private:
 	double value;
-	double rate;
+	double dailyRate;
 
 };

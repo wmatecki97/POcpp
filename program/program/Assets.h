@@ -1,12 +1,17 @@
 #pragma once
+#include<iostream>
 
+using namespace std;
 class Assets {
 
 public:
-	Assets();
+	Assets(char[]);
 	double getValue();
 	void setValue(double value);
 	char getInfo();
+	int getId();
+
+
 
 protected:
 	int id;
