@@ -24,3 +24,6 @@ Assets::Assets(char type[]) {
 int Assets::getId(){
 	return id;
 }
+string Assets::getName() {
+	return name;
+}

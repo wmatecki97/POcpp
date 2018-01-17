@@ -30,7 +30,7 @@ void Menu::addItem()
 	int input;
 	cin >> input;
 	switch (input) {
-	case 1: wallet.addAsset(InvestmentFund());break;
+	case 1:wallet += InvestmentFund(); break; // wallet.addAsset(InvestmentFund());break;
 	}
 	start();
 
@@ -42,6 +42,22 @@ void Menu::display() {
 
 void Menu::deleteItem()
 {
+	auto list = wallet.getList();
+	if (list.size() > 0) {
+		cout << "Ktory przedmiot chcesz usunac?" << endl;
+		for (size_t i = 0; i < list.size(); i++) {
+			auto name = list[i].getName();
+			auto id = list[i].getId();
+			printf("%d) %s \n", id, name.c_str());
+		}
+		int choose;
+		cin >> choose;
+
+		wallet.erase(choose);
+	}
+	else cout << "BRAK AKTYWOW W PORTFELU"<<endl<<endl;
+
+	start();
 
 }
 

@@ -10,6 +10,7 @@ public:
 	void setValue(double value);
 	char getInfo();
 	int getId();
+	string getName();
 
 
 
