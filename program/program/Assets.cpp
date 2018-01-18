@@ -27,3 +27,9 @@ int Assets::getId(){
 string Assets::getName() {
 	return name;
 }
+
+
+
+string Assets::getDetails() {
+	return "";
+}

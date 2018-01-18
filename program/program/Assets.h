@@ -8,14 +8,14 @@ public:
 	Assets(char[]);
 	double getValue();
 	void setValue(double value);
-	char getInfo();
 	int getId();
 	string getName();
-
+	virtual string getDetails();
 
 
 protected:
 	int id;
 	string name;
 	double value;
+	double dailyRate;
 };

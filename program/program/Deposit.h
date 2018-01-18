@@ -9,7 +9,6 @@ public:
 	double getRate(); 
 
 private:
-	double value;
-	double dailyRate;
+
 
 };

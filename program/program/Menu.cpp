@@ -29,14 +29,33 @@ void Menu::addItem()
 	cout << "Co chcesz dodac?" << endl << "Aby dodac fundusz inwestycyjny wpisz 1"<<endl;
 	int input;
 	cin >> input;
+	Assets* asset=NULL;
+	bool isGood = false;
 	switch (input) {
-	case 1:wallet += InvestmentFund(); break; // wallet.addAsset(InvestmentFund());break;
+	case 1: asset = new InvestmentFund(); isGood = true; break; // wallet.addAsset(InvestmentFund());break;
 	}
+	if(isGood)
+		wallet += asset;
 	start();
 
 }
 
 void Menu::display() {
+
+	auto list = wallet.getList();
+	if (list.size() > 0) {
+		cout << "Lista aktywow w portfelu:" << endl;
+		for (size_t i = 0; i < list.size(); i++) {
+			auto a = list[i];
+			auto name = a->getName();
+			auto id = a->getId();
+			auto details = a->getDetails();
+			
+			printf("%d) %s %s\n", id, name.c_str(), details.c_str());
+		}
+	}
+	else cout << "BRAK AKTYWOW W PORTFELU" << endl << endl;
+	start();
 
 }
 
@@ -46,8 +65,8 @@ void Menu::deleteItem()
 	if (list.size() > 0) {
 		cout << "Ktory przedmiot chcesz usunac?" << endl;
 		for (size_t i = 0; i < list.size(); i++) {
-			auto name = list[i].getName();
-			auto id = list[i].getId();
+			auto name = list[i]->getName();
+			auto id = list[i]->getId();
 			printf("%d) %s \n", id, name.c_str());
 		}
 		int choose;
@@ -56,7 +75,6 @@ void Menu::deleteItem()
 		wallet.erase(choose);
 	}
 	else cout << "BRAK AKTYWOW W PORTFELU"<<endl<<endl;
-
 	start();
 
 }
