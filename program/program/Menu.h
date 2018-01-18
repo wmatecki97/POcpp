@@ -8,7 +8,7 @@ public:
 	static void addItem();
 	static void deleteItem();
 	static void editItem();
-	static void getValue();
+	static void simulateValue();
 	static void display();
 	static void init();
 };

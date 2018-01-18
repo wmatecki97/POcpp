@@ -16,6 +16,8 @@ public:
 	virtual string simulateFutureValue(int days);
 	virtual void edit();
 	virtual string getInfo();
+	void displayEditMessage();
+	bool controlEditAction(int choose);
 
 
 protected:

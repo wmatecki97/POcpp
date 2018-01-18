@@ -1,2 +1,5 @@
 ﻿  Assets.cpp
-LINK : fatal error LNK1201: error writing to program database 'C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.pdb'; check for insufficient disk space, invalid path, or insufficient privilege
+c:\users\wiktor\dropbox\visual studio\pocpp\program\program\assets.cpp(98): warning C4101: 'e': unreferenced local variable
+c:\users\wiktor\dropbox\visual studio\pocpp\program\program\assets.cpp(101): warning C4101: 'e': unreferenced local variable
+  program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.exe
+  program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.pdb (Full PDB)

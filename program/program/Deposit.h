@@ -5,7 +5,8 @@ class Deposit: public Assets {
 
 public:
 	Deposit();
-	string getDetails();
+	string getInfo();
+	void edit();
 
 private:
 	string bank;

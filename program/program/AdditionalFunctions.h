@@ -8,5 +8,4 @@ public:
 	static int getRandom(int min, int max);
 	static int getTimePeriods();
 	static int getUniqueInteger();
-
 };

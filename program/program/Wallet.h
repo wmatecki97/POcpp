@@ -15,6 +15,7 @@ public:
 	bool erase(int id);
 	vector<Assets*> getList();
 	void edit(int id);
+	void simulate(int choose);
 
 private:
 	vector<Assets*> list;

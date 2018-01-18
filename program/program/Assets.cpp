@@ -2,6 +2,8 @@
 #include <iostream>
 #include "AdditionalFunctions.h"
 #include <string>
+#include <iomanip>
+#include <sstream> 
 
 using namespace std;
 
@@ -20,7 +22,7 @@ Assets::Assets(char type[]) {
 	string temp(type);
 	temp += to_string(id);
 	name = temp;
-	dailyRate = AdditionalFunctions::getRandom(0, 50) / 1000;
+	dailyRate = double(AdditionalFunctions::getRandom(10, 50)) / 10;
 }
 
 int Assets::getId() {
@@ -42,41 +44,61 @@ double Assets::getRate()
 
 string Assets::simulateFutureValue(int days)
 {
-	double result = value*pow((1 + dailyRate), days);
+	string output = name + ": ";
+	double result = value*pow((1.0 + double(dailyRate/100)), days);
 	if (result > 0 && result < 2000000000)
-		return to_string(result);
+		output += to_string(result) + "zl";
 	else
-		return "Bardzo duzo pieniedzy";
+		output += "Bardzo duzo pieniedzy";
+	return output;
 }
 
 void Assets::edit()
 {
-	bool isGood = true;
-	string text;
-	int userValue;
+	bool isGood = false;
 	int choose;
-	while (isGood) {
-		cout << "Ay edytowac nazwe wpisz: 1" << endl << "Aby edytowac wartosc wpisz:2" << endl << "Aby edytowac dzienny procent wzrostu wartosci wpisz: 3" << endl;;
-		cout << "Aby wyjsc wpisz 0" << endl;
+	while (!isGood) {
+		displayEditMessage();
 		cin >> choose;
-
-		switch (choose) {
-		case 0: isGood = false; break;
-		case 1: cout << "Podaj nowa nazwe" << endl; cin >> text; name = text; break;
-		case 2: cout << "Podaj nowa wartosc" << endl;
-			try { cin >> userValue; value = userValue; }
-			catch (exception e) { cout << "Niepoprawna wartosc" << endl; } break;
-		case 3: cout << "Podaj nowy dzienny procent wzrostu jako wartosc z zakresu 0-100" << endl;
-			try { cin >> userValue; dailyRate = userValue; if (userValue > 100 || userValue < 0) throw new exception; }
-			catch (exception e) { cout << "Niepoprawna wartosc" << endl; } break;
-		}
+		isGood = controlEditAction(choose);	
 	}
-
-
 }
 
 string Assets::getInfo()
 {
-	string info = to_string(id) + ") " + name + " Wartosc: " + to_string(value) + " Dzienny procent wzrostu wartosci: " + to_string(dailyRate);
+	stringstream streamValue, streamPercentage;
+	streamValue << fixed << setprecision(2) << value;
+	streamPercentage << fixed << setprecision(2) << dailyRate;
+
+	string stringValue = streamValue.str(), stringPercentage=streamPercentage.str();
+	string info = to_string(id) + ") " + name + " Wartosc: " + stringValue + "zl Dzienny procent wzrostu wartosci: " + stringPercentage +"%";
 	return info;
+}
+
+
+
+void Assets::displayEditMessage()
+{
+	cout << "Aby wrocic wpisz 0" << endl;
+	cout << "Ay edytowac nazwe wpisz: 1" << endl << "Aby edytowac wartosc wpisz:2" << endl << "Aby edytowac dzienny procent wzrostu wartosci wpisz: 3" << endl;
+}
+
+bool Assets::controlEditAction(int choose)
+{
+	bool isGood=false;
+	int userValue;
+	string text;
+	switch (choose) {
+	case 0: isGood = true; break;
+	case 1: cout << "Podaj nowa nazwe" << endl; cin >> text; name = text; break;
+	case 2: cout << "Podaj nowa wartosc" << endl;
+		try { cin >> userValue; if (userValue < 0 || userValue>2000000000) 
+			throw 0;; 
+		value = userValue; }
+		catch (int e) { cout << "Niepoprawna wartosc" << endl; } break;
+	case 3: cout << "Podaj nowy dzienny procent wzrostu jako wartosc z zakresu 0-100" << endl;
+		try { cin >> userValue;  if (userValue > 100 || userValue < 0) throw 0; dailyRate = userValue;}
+		catch (int e) { cout << "Niepoprawna wartosc" << endl; } break;
+	}
+	return isGood;
 }

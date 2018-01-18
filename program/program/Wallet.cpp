@@ -26,7 +26,7 @@ bool Wallet::erase(int id) {
 			list.erase(list.begin() + i);
 			isGood = true;
 			break;
-		}			
+		}
 	}
 	return isGood;
 }
@@ -37,9 +37,17 @@ vector<Assets*> Wallet::getList() {
 
 void Wallet::edit(int id)
 {
-	for (size_t i; i < list.size(); i++) {
-		if (list[i]->getId() == id)
+	for (size_t i = 0; i < list.size(); i++) {
+		int a = list[i]->getId();
+		if ( a == id)
 			list[i]->edit();
+	}
+}
+
+void Wallet::simulate(int choose)
+{
+	for (size_t i = 0; i < list.size(); i++) {
+		cout << list[i]->simulateFutureValue(choose).c_str();
 	}
 }
 

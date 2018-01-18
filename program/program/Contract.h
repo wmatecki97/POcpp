@@ -5,8 +5,9 @@ class Contract : public Assets {
 
 public:
 	Contract();
-	string getDetails();
+	string getInfo();
 	string simulateFutureValue(int days);
+	void edit();
 
 private:
 	string subject;

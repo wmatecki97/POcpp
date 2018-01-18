@@ -6,6 +6,7 @@ class Estate : public Assets {
 public:
 	Estate();
 	string getInfo();
+	void edit();
 
 private:
 	string adress;

@@ -15,15 +15,19 @@ void Menu::init() {
 
 void Menu::start()
 {
-	cout << "Co chcesz zrobic?" << endl << "Aby dodac aktywa wpisz: 1" << endl << "Aby wyswietlic aktywa wpisz: 2" << endl;
-	cout << "Aby usunac aktywa wpisz: 3" << endl << "Aby edytowac aktywa wpisz: 4" << endl;
+	cout << endl << endl;
+	cout << "Co chcesz zrobic?" << endl <<"Aby wyjsc wpisz: 0"<<endl<< "Aby dodac aktywa wpisz: 1" << endl << "Aby wyswietlic aktywa wpisz: 2" << endl;
+	cout << "Aby usunac aktywa wpisz: 3" << endl << "Aby edytowac aktywa wpisz: 4" << endl << "Aby symulowac wartosc portfela w przyszlosci wpisz: 5" << endl;
 	int input;
 	cin >> input;
 	switch (input) {
+	case 0: break;
 	case 1: addItem(); break;
 	case 2: display(); break;
 	case 3: deleteItem(); break;
 	case 4: editItem(); break;
+	case 5: simulateValue(); break;
+	default: cout << "NIEPOPRAWNA KOMENDA" << endl; start();
 	}
 }
 
@@ -41,6 +45,7 @@ void Menu::addItem()
 	case 2: isGood = true; asset = new Contract(); break;
 	case 3: isGood = true; asset = new Deposit(); break;
 	case 4: isGood = true; asset = new Estate(); break;
+	default: cout << "NIEPOPRAWNA KOMENDA" << endl;
 	}
 	if (isGood) {
 		wallet += asset;
@@ -73,7 +78,7 @@ void Menu::deleteItem()
 	system("cls");
 	auto list = wallet.getList();
 	if (list.size() > 0) {
-		cout << "Ktory przedmiot chcesz usunac?" << endl;
+		cout << "Ktory przedmiot chcesz usunac?" << endl << "Aby wrocic wpisz: 0" << endl;
 		for (size_t i = 0; i < list.size(); i++) {
 			auto name = list[i]->getName();
 			auto id = list[i]->getId();
@@ -81,10 +86,11 @@ void Menu::deleteItem()
 		}
 		int choose;
 		cin >> choose;
-		if (wallet.erase(choose))
-			cout << "POMYSLNIE USUNIETO" << endl;
-		else
-			cout << "BLEDNA WARTOSC"<<endl;
+		if (choose != 0)
+			if (wallet.erase(choose))
+				cout << "POMYSLNIE USUNIETO" << endl;
+			else
+				cout << "BLEDNA WARTOSC" << endl;
 	}
 	else cout << "BRAK AKTYWOW W PORTFELU" << endl << endl;
 	start();
@@ -96,7 +102,7 @@ void Menu::editItem()
 	system("cls");
 	auto list = wallet.getList();
 	if (list.size() > 0) {
-		cout << "Ktory przedmiot chcesz edytowac" << endl;
+		cout << "Ktory przedmiot chcesz edytowac?" << endl << "Aby wrocic wpisz: 0" << endl;
 		for (size_t i = 0; i < list.size(); i++) {
 			auto name = list[i]->getName();
 			auto id = list[i]->getId();
@@ -104,16 +110,26 @@ void Menu::editItem()
 		}
 		int choose;
 		cin >> choose;
-		wallet.edit(choose);
+		if (choose != 0)
+			wallet.edit(choose);
 	}
 	else cout << "BRAK AKTYWOW W PORTFELU" << endl << endl;
 	start();
 }
 
-void Menu::getValue()
+void Menu::simulateValue()
 {
 	system("cls");
-
+	cout << "Aby ujrzec przyszla wartosc aktywow wprowadz liczbę dni" << endl << "Za ile dni: ";
+	int choose;
+	try {
+		cin >> choose;
+		wallet.simulate(choose);
+	}
+	catch (int e) {
+		cout << "Niepoprawna wartosc";
+	}
+	start();
 }
 
 
