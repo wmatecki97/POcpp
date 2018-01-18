@@ -12,8 +12,9 @@ public:
 	double getValue();
 	Assets* getAsset(int id);
 	void addAsset(Assets* asset);
-	void erase(int id);
+	bool erase(int id);
 	vector<Assets*> getList();
+	void edit(int id);
 
 private:
 	vector<Assets*> list;

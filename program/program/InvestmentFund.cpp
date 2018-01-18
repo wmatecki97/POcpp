@@ -12,5 +12,5 @@ InvestmentFund::InvestmentFund():Assets("FunduszInwestycyjny"){
 }
 
 string InvestmentFund::getDetails() {
-	return "qweqweqweqwe";
+	return"";
 }

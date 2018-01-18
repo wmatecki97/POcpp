@@ -1,3 +1,2 @@
-﻿  Menu.cpp
-  program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.exe
-  program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.pdb (Full PDB)
+﻿  Assets.cpp
+LINK : fatal error LNK1201: error writing to program database 'C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.pdb'; check for insufficient disk space, invalid path, or insufficient privilege

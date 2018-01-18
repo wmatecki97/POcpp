@@ -1,14 +1,13 @@
 #pragma once
 #include "Assets.h"
-
+#include<string>
 class Deposit: public Assets {
 
 public:
 	Deposit();
-	double getValue();
-	double getRate(); 
+	string getDetails();
 
 private:
-
+	string bank;
 
 };

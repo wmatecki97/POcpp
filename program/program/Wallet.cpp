@@ -19,15 +19,28 @@ void Wallet::addAsset(Assets* asset) {
 
 }
 
-void Wallet::erase(int id) {
+bool Wallet::erase(int id) {
+	bool isGood = false;
 	for (size_t i = 0; i < list.size(); i++) {
-		if (list[i]->getId() == id)
+		if (list[i]->getId() == id) {
 			list.erase(list.begin() + i);
+			isGood = true;
+			break;
+		}			
 	}
+	return isGood;
 }
 
 vector<Assets*> Wallet::getList() {
 	return list;
+}
+
+void Wallet::edit(int id)
+{
+	for (size_t i; i < list.size(); i++) {
+		if (list[i]->getId() == id)
+			list[i]->edit();
+	}
 }
 
 Assets* Wallet::getAsset(int id) {

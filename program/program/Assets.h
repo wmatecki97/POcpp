@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<math.h>
 
 using namespace std;
 class Assets {
@@ -11,6 +12,10 @@ public:
 	int getId();
 	string getName();
 	virtual string getDetails();
+	double getRate();
+	virtual string simulateFutureValue(int days);
+	virtual void edit();
+	virtual string getInfo();
 
 
 protected:
