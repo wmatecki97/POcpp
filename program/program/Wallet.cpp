@@ -47,7 +47,7 @@ void Wallet::edit(int id)
 void Wallet::simulate(int choose)
 {
 	for (size_t i = 0; i < list.size(); i++) {
-		cout << list[i]->simulateFutureValue(choose).c_str();
+		cout << list[i]->simulateFutureValue(choose).c_str()<<endl;
 	}
 }
 

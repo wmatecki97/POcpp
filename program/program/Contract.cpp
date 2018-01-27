@@ -30,10 +30,12 @@ string Contract::getInfo()
 
 string Contract::simulateFutureValue(int days)
 {
-	if (days > expireTime)
-		return to_string(contractValue);
+	string output = name + ": ";
+	if (days >= expireTime)
+		output += to_string(contractValue);
 	else
-		return "0";
+		output += "0";
+	return output+"zl";
 }
 
 void Contract::edit()

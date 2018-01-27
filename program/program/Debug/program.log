@@ -1,5 +1,5 @@
-﻿  Assets.cpp
-c:\users\wiktor\dropbox\visual studio\pocpp\program\program\assets.cpp(98): warning C4101: 'e': unreferenced local variable
-c:\users\wiktor\dropbox\visual studio\pocpp\program\program\assets.cpp(101): warning C4101: 'e': unreferenced local variable
+﻿  Contract.cpp
+c:\users\wiktor\dropbox\visual studio\pocpp\program\program\contract.cpp(55): warning C4101: 'e': unreferenced local variable
+c:\users\wiktor\dropbox\visual studio\pocpp\program\program\contract.cpp(58): warning C4101: 'e': unreferenced local variable
   program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.exe
   program.vcxproj -> C:\Users\wiktor\Dropbox\visual studio\POcpp\program\Debug\program.pdb (Full PDB)
